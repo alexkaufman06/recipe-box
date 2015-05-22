@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- the ng-app below is a directive.  Directives are markers on a HTML tag that
-tell angular to run or reference some Javascript code. -->
 <html ng-app="virtualCookbook">
   <head>
     <meta charset="utf-8"/>
@@ -10,17 +8,12 @@ tell angular to run or reference some Javascript code. -->
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
   </head>
-  <!-- Below is a directive that allows us to access our controller from within
-        our HTML under the alias cookbook.  -->
   <body ng-controller="CookbookController as cookbook">
     <header>
       <h1 class="text-center">Virtual Cookbook</h1>
       <h3 class="text-center">– An Angular Application –</h3>
     </header>
     <div class="list-group">
-      <!-- The ng-repeat below creates a loop that connects to our controller
-          using the alias recipe.  It also has a filter on it to sort the
-          recipes alphabetically -->
       <div class="list-group-item" ng-repeat="recipe in cookbook.recipes | orderBy:'+name'">
         <h1 class="text-center">{{recipe.name}}</h1>
         <h3 class="text-center">Price: {{recipe.price | currency}}
@@ -59,8 +52,6 @@ tell angular to run or reference some Javascript code. -->
               <li ng-repeat="review in recipe.reviews">
                 <strong>{{review.stars}} Stars</strong>
                 <p>{{review.body}}</p>
-                <!-- In the angular expression below we have used a date filter with
-                     added options-->
                 <cite class="clearfix">-{{review.author}} on {{review.createdOn | date:'MM/dd/yyyy @ h:mma'}}</cite>
               </li>
             </blockquote>
