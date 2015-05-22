@@ -1,10 +1,18 @@
 (function(){
-  var app = angular.module('recipe-box', []);
+  // Above is a closure in which we wrap our javascript out of good habit
 
-  app.controller('RecipeController', function() {
+  // Below is a module which is where we write pieces of our application as
+  // well as define dependencies [].
+  var app = angular.module('virtualCookbook', []);
+
+  // Below is a controller which is how we help get data on to the page.  We
+  // can also define our app's behavior by defining functions and values.
+  app.controller('CookbookController', function() {
     this.recipes = recipes;
   });
 
+  // Hard coded variable for seed data.  Eventually this should be moved to an
+  // actual database.
   var recipes = [{
     name: 'Soup',
     description: 'A light soup with lots of flavor',

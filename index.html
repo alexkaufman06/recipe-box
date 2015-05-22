@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="recipe-box">
+<!-- the ng-app below is a directive.  Directives are markers on a HTML tag that
+tell angular to run or reference some Javascript code. -->
+<html ng-app="virtualCookbook">
 
   <head>
     <meta charset="utf-8"/>
-    <title>Recipe Box</title>
+    <title>Virtual Cookbook</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
   </head>
-
-  <body ng-controller="RecipeController as cookbook">
+  <!-- Below is a directive that allows us to access our controller from within
+        our HTML.  -->
+  <body ng-controller="CookbookController as cookbook">
     <header>
       <h1 class="text-center">Recipe Box</h1>
       <h3 class="text-center">– An Angular Application –</h3>
     </header>
     <div class="list-group">
+      <!-- The ng-repeat below creates a loop that connects to our controller
+          using the alias recipe.-->
       <div class="list-group-item" ng-repeat="recipe in cookbook.recipes">
         <div class="img-wrap">
           <img ng-src="{{recipe.image}}" class="img-thumbnail center-block"/>
         <div>
       </div>
       <h1>{{recipe.name}}</h1>
+      <!-- We can have loops/ng-repeats within other loops/ng-repeats  -->
       <div class="list-group-item" ng-repeat="ingredient in recipe.ingredients">
         <h5>{{ingredient}}</h5>
       </div>
@@ -29,6 +35,7 @@
         <li ng-repeat="review in recipe.reviews">
           <strong>{{review.stars}} Stars</strong>
           {{review.body}}
+          <!-- In the angular expression below we have used a date filter -->
           <cite class="clearfix">-{{review.author}} on {{review.createdOn | date}}</cite>
         </li>
       </ul>
