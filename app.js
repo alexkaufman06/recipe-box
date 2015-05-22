@@ -11,6 +11,16 @@
     this.recipes = recipes;
   });
 
+  app.controller('ReviewController', function() {
+    this.review = {};
+
+    this.addReview = function(recipe) {
+      this.review.createdOn = Date.now();
+      recipe.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
   app.controller('PanelController', function() {
     this.tab = 1;
 
@@ -34,12 +44,20 @@
       "Rosemary",
       "White Beans"
     ],
-    reviews: [{
+    reviews: [
+      {
       stars: 5,
-      body: "Tasty meal that you can store in mason jars",
+      body: "Tasty meal that you can store in mason jars.",
       author: "alex@gmail.com",
       createdOn: 1432229390407
-    }],
+      },
+      {
+      stars: 4,
+      body: "Delicious though I prefer to add a little more spice.",
+      author: "joe@gmail.com",
+      createdOn: 1432406711718
+      }
+    ],
     image: "http://1.bp.blogspot.com/-fySnQSbbqM0/Tnp9cuNKlFI/AAAAAAAAA5M/BdA6jRsC8Go/s1600/DSC_2565.JPG"
     },
     {

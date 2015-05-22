@@ -7,3 +7,22 @@
 .panel {
   max-width: 563px;
 }
+
+.glyphicon-star {
+  color: gold;
+}
+
+.reviews {
+  padding-bottom: 100px ;
+}
+
+.star-selector {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+.review-form {
+  text-align: center;
+  margin: auto;
+}
