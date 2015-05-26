@@ -1,6 +1,6 @@
 (function(){
 
-  var app = angular.module('virtualCookbook', []);
+  var app = angular.module('virtualCookbook', ['recipe-directives']);
 
   app.controller('CookbookController', function() {
     this.recipes = recipes;
@@ -25,25 +25,6 @@
 
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
-    };
-  });
-
-  app.directive('recipePanel', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'recipe-panel.html',
-      controller: function(){
-        this.tab = 1;
-
-        this.selectTab = function(setTab) {
-          this.tab = setTab;
-        };
-
-        this.isSelected = function(checkTab) {
-          return this.tab === checkTab;
-        };
-      },
-      controllerAs: 'panel'
     };
   });
 
