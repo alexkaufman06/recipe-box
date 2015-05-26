@@ -1,12 +1,7 @@
 (function(){
-  // Above is a closure in which we wrap our javascript out of good habit
 
-  // Below is a module which is where we write pieces of our application as
-  // well as define dependencies [].
   var app = angular.module('virtualCookbook', []);
 
-  // Below is a controller which is how we help get data on to the page.  We
-  // can also define our app's behavior by defining functions and values.
   app.controller('CookbookController', function() {
     this.recipes = recipes;
   });
@@ -33,8 +28,25 @@
     };
   });
 
-  // Hard coded variable for seed data.  Eventually this should be moved to an
-  // actual database.
+  app.directive('recipePanel', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'recipe-panel.html',
+      controller: function(){
+        this.tab = 1;
+
+        this.selectTab = function(setTab) {
+          this.tab = setTab;
+        };
+
+        this.isSelected = function(checkTab) {
+          return this.tab === checkTab;
+        };
+      },
+      controllerAs: 'panel'
+    };
+  });
+
   var recipes = [{
     name: 'Soup',
     price: 15,

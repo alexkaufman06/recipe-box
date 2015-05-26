@@ -4,7 +4,6 @@
     <meta charset="utf-8"/>
     <title>Virtual Cookbook</title>
     <link rel="stylesheet" href="css/bootstrap_cerulean.css"/>
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"/> -->
     <link rel="stylesheet" href="css/styles.css"/>
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
@@ -22,86 +21,8 @@
         <div class="img-wrap">
           <img ng-src="{{recipe.image}}" class="img-thumbnail center-block"/>
         </div>
-        <section ng-controller="PanelController as panel" class="center">
-          <ul class="nav nav-pills">
-            <li ng-class="{ active: panel.isSelected(1) }">
-              <a ng-click="panel.selectTab(1)">Description</a>
-            </li>
-            <li ng-class="{ active: panel.isSelected(2) }">
-              <a ng-click="panel.selectTab(2)">Ingredients</a>
-            </li>
-            <li ng-class="{ active: panel.isSelected(3) }">
-              <a ng-click="panel.selectTab(3)">Reviews</a>
-            </li>
-          </ul>
-          <div ng-show="panel.isSelected(1)" class="panel">
-            <blockquote class="text-left">
-              <h4>Description:</h4>
-              <p>{{recipe.description}}</p>
-            </blockquote>
-          </div>
-          <div ng-show="panel.isSelected(2)" class="panel">
-            <blockquote class="text-left">
-              <h5>Ingredients:</h5>
-              <ul ng-repeat="ingredient in recipe.ingredients">
-                <li>{{ingredient}}</li>
-              </ul>
-            </blockquote>
-          </div>
-          <div ng-show="panel.isSelected(3)" class="panel reviews">
-            <blockquote class="text-left">
-              <h5>Reviews:</h5>
-              <li ng-repeat="review in recipe.reviews">
-                <p>
-                  <strong>
-                    {{review.stars}}
-                    <span class="glyphicon glyphicon-star"></span>
-                  </strong>
-                </p>
-                <p>{{review.body}}</p>
-                <cite class="clearfix">
-                  -{{review.author}} on
-                   {{review.createdOn | date:'MM/dd/yyyy @ h:mma'}}
-                </cite>
-                <hr>
-              </li>
-            </blockquote>
-            <form name="reviewForm" ng-controller="ReviewController as reviews"
-                  ng-submit="reviewForm.$valid && reviews.addReview(recipe)"
-                  novalidate>
-              <h5>Submit a Review</h5>
-              <blockquote class="text-left">
-                <p>{{reviews.review.stars}}
-                  <span class="glyphicon glyphicon-star"></span>
-                </p>
-                <p>{{reviews.review.body}}</p>
-                <p><cite> by-{{reviews.review.author}}</cite></p>
-              </blockquote>
-              <div class="reviewForm">
-                <div class="star-selector">
-                <select ng-model="reviews.review.stars"
-                        class="form-control" required>
-                  <option value="">Rate this Recipe</option>
-                  <option value="1">1 Star</option>
-                  <option value="2">2 Star</option>
-                  <option value="3">3 Star</option>
-                  <option value="4">4 Star</option>
-                  <option value="5">5 Star</option>
-                </select>
-                <textarea ng-model="reviews.review.body" class="form-control"
-                          placeholder="Type your review here." required>
-                </textarea>
-                <input ng-model="reviews.review.author" type="email"
-                       class="form-control" placeholder="Type your email here."
-                       required>
-                </input>
-                <div>
-                <input class="btn btn-primary" type="submit"
-                       value="Submit Review" />
-              </div>
-            </form>
-          </div>
-        </section>
+        <recipe-panel ng-controller="PanelController as panel">
+        </recipe-panel>
       </div>
     </div>
   </body>

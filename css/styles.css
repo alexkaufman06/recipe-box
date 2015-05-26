@@ -9,7 +9,7 @@ h1 {
 }
 
 .panel {
-  max-width: 563px;
+  max-width: 423.5px;
 }
 
 .glyphicon-star {
@@ -26,7 +26,7 @@ h1 {
   margin: auto;
 }
 
-.review-form {
+.reviewForm {
   text-align: center;
   margin: auto;
 }
