@@ -1,5 +1,26 @@
 var app = angular.module('recipe-directives', []);
 
+app.directive('descriptions', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "descriptions.html"
+  }
+});
+
+app.directive('ingredients', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "ingredients.html"
+  }
+});
+
+app.directive('reviews', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "reviews.html"
+  }
+})
+
 app.directive('recipePanel', function(){
   return {
     restrict: 'E',
