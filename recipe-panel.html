@@ -45,13 +45,13 @@
     <form name="reviewForm" ng-controller="ReviewController as reviews"
           ng-submit="reviewForm.$valid && reviews.addReview(recipe)"
           novalidate>
-      <h5>Submit a Review</h5>
+      <h4>----- Submit a Review -----</h4>
       <blockquote class="text-left">
-        <p>{{reviews.review.stars}}
+        <p ng-show="reviews.review.stars">{{reviews.review.stars}}
           <span class="glyphicon glyphicon-star"></span>
         </p>
-        <p>{{reviews.review.body}}</p>
-        <p><cite> by-{{reviews.review.author}}</cite></p>
+        <p ng-show="reviews.review.body">{{reviews.review.body}}</p>
+        <p ng-show="reviews.review.author"><cite> by-{{reviews.review.author}}</cite></p>
       </blockquote>
       <div class="reviewForm">
         <select ng-model="reviews.review.stars"
