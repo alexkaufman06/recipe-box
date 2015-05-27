@@ -38,12 +38,19 @@
         <option value="5">5 Star</option>
       </select>
       <textarea ng-model="reviews.review.body" class="form-control"
-                placeholder="Type your review here." required>
+                placeholder="Type your review here." name="body" required>
       </textarea>
+      <span style="color:red" ng-show="reviewForm.body.$dirty && reviewForm.body.$invalid">
+        <span ng-show="reviewForm.body.$error.required">Username is required.</span>
+      </span>
       <input ng-model="reviews.review.author" type="email"
              class="form-control" placeholder="Type your email here."
-             required>
+             name="email" required>
       </input>
+      <span style="color:red" ng-show="reviewForm.email.$dirty && reviewForm.email.$invalid">
+        <span ng-show="reviewForm.email.$error.required">Email is required.</span>
+        <span ng-show="reviewForm.email.$error.email">Invalid email address.</span>
+      </span>
       <input class="btn btn-primary" type="submit" value="Submit Review">
       </input>
     </div>

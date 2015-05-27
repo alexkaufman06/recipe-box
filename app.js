@@ -56,10 +56,11 @@
     {
      name: 'Chili',
      price: 16,
-     description: 'A hearty chili',
+     description: 'A hearty chili that is perfect for any occasion.  This chili features a variety of beans and can be topped with cheddar cheese, fresh onions, and crackers.',
      ingredients: [
        "Beef",
-       "Beans",
+       "White Beans",
+       "Kidney Beans",
        "Garlic",
        "Onion"
      ],
