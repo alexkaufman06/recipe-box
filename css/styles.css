@@ -2,13 +2,11 @@ h1 {
   font-size: 80px;
 }
 
-.center {
+.panel {
   text-align: center;
   float: none;
-  display: inline-block;
-}
-
-.panel {
+  margin: 0 auto;
+  display: block;
   max-width: 423.5px;
 }
 

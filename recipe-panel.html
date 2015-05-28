@@ -1,4 +1,4 @@
-<section class="center">
+<div class="panel">
   <ul class="nav nav-pills">
     <li ng-class="{ active: panel.isSelected(1) }">
       <a ng-click="panel.selectTab(1)">Description</a>
@@ -13,4 +13,4 @@
   <descriptions ng-show="panel.isSelected(1)"></descriptions>
   <ingredients ng-show="panel.isSelected(2)"></ingredients>
   <reviews ng-show="panel.isSelected(3)"></reviews>
-</section>
+</div>

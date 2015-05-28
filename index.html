@@ -18,9 +18,9 @@
       <div class="list-group-item"
            ng-repeat="recipe in cookbook.recipes | orderBy:'+name'">
         <h1 class="text-center">{{recipe.name}}</h1>
-        <h3 class="text-center">Price: {{recipe.price | currency}}
+        <h3 class="text-center">Price: {{recipe.price | currency}}</h3>
         <div class="img-wrap">
-          <img ng-src="{{recipe.image}}" class="img-thumbnail center-block"/>
+          <img ng-src="{{recipe.image}}" class="img-thumbnail center-block"></img>
         </div>
         <recipe-panel ng-controller="PanelController as panel">
         </recipe-panel>
